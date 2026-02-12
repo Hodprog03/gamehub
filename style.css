@@ -1,0 +1,422 @@
+/* Variables CSS */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #e74c3c;
+  --accent-color: #3498db;
+  --light-bg: #f8f9fa;
+  --dark-text: #2c3e50;
+  --light-text: #7f8c8d;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --success-color: #27ae60;
+}
+
+/* Estilos generales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
+  color: white;
+  padding: 2rem 0;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.header h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Contenedor de filtros */
+.platform-filter-container {
+  margin-top: 1.5rem;
+}
+
+.filter-title {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+/* Barra de búsqueda */
+.game-search-container {
+  max-width: 500px;
+  margin: 1rem auto 0;
+}
+
+.game-search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.game-search-input:focus {
+  border-color: #3498db;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+.game-search-input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Encabezado de sección */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--primary-color);
+  border-left: 5px solid var(--secondary-color);
+  padding-left: 15px;
+  margin: 0;
+}
+
+/* Opciones de ordenamiento */
+.sort-options {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sort-select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* Tarjetas de juegos */
+.game-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: white;
+  height: 100%;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.game-card.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.game-card img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Cuerpo de tarjetas */
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.card-title:hover {
+  color: var(--secondary-color);
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: var(--light-text) !important;
+  font-weight: 500;
+}
+
+/* Precios */
+.price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  margin-top: 1rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/* Badges de plataforma */
+.platform-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.platform-badge.filter-badge {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.platform-badge.filter-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.platform-badge.filter-badge.active {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* Sistema de valoración */
+.rating {
+  color: #f39c12;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.rating-text {
+  color: var(--light-text);
+}
+
+/* Badges de oferta */
+.offer-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 10;
+}
+
+/* Sección de ofertas */
+.ofertas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.ofertas .card {
+  flex: 1 1 calc(25% - 20px);
+  min-width: 220px;
+}
+
+/* Botones */
+.btn-comprar {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.btn-comprar:hover {
+  background-color: #c0392b;
+  transform: scale(1.03);
+  color: white;
+}
+
+.btn-comprar:active {
+  transform: scale(0.98);
+}
+
+/* Contador del carrito */
+.cart-counter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 100;
+}
+
+.cart-counter:hover {
+  transform: scale(1.1);
+}
+
+.cart-counter.pulse {
+  animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.footer h4 {
+  font-weight: 700;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.social-icon {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: var(--accent-color);
+}
+
+/* Modal personalizado */
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.
+
+  
+/* ============================================ */
+/* CORRECCIONES FINALES - PEGAR AL FINAL DEL CSS */
+/* ============================================ */
+
+/* Asegura que todas las filas funcionen */
+.row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+}
+
+/* Asegura que las columnas estén bien */
+[class*="col-"] {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  float: none !important;
+}
+
+/* Para las ofertas especiales */
+.ofertas {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.ofertas .card {
+  flex: 1 1 calc(25% - 20px) !important;
+  min-width: 220px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Margen para todas las tarjetas */
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+/* Elimina cualquier problema de visualización */
+.card {
+  display: block !important;
+  position: relative !important;
+}
+
+/* Responsive para ofertas */
+@media (max-width: 1200px) {
+  .ofertas .card {
+    flex: 1 1 calc(33.333% - 20px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .ofertas .card {
+    flex: 1 1 calc(50% - 20px) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .ofertas .card {
+    flex: 1 1 100% !important;
+  }
+}
+
+/* Columnas vacías solo visibles en desktop */
+.d-none.d-md-block {
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .d-none.d-md-block {
+    display: none !important;
+  }
+}

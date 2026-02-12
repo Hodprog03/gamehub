@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameHub - Galería de Videojuegos</title>
+  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="imag/icon.png" type="image/png">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <header class="header text-center">
+      <h1><i class="fas fa-gamepad me-3"></i>GameHub</h1>
+      <p class="mt-3">Descubre los videojuegos más recientes y mejor valorados del mercado. Ofertas exclusivas en juegos para todas las plataformas.</p>
+      <div class="mt-4 platform-filter-container">
+        <p class="filter-title">Filtrar por plataforma:</p>
+        <span class="platform-badge filter-badge" data-platform="all">TODOS</span>
+        <span class="platform-badge filter-badge" data-platform="PC">PC</span>
+        <span class="platform-badge filter-badge" data-platform="PS5">PS5</span>
+        <span class="platform-badge filter-badge" data-platform="Xbox">Xbox Series X</span>
+        <span class="platform-badge filter-badge" data-platform="Switch">Nintendo Switch</span>
+      </div>
+      <div class="game-search-container mt-3">
+        <input type="text" class="game-search-input" placeholder="Buscar juegos por título, género o plataforma...">
+      </div>
+    </header>
+
+    
+    <div class="section-header">
+      <h2 class="section-title">JUEGOS RECIENTES</h2>
+      <div class="sort-options">
+        <select class="sort-select" data-section="recent">
+          <option value="default">Ordenar por: Predeterminado</option>
+          <option value="price-asc">Precio: Menor a mayor</option>
+          <option value="price-desc">Precio: Mayor a menor</option>
+          <option value="rating">Mejor valorados primero</option>
+          <option value="title">Orden alfabético</option>
+        </select>
+      </div>
+    </div>
+    
+    <!-- PRIMERA FILA - 4 JUEGOS -->
+    <div class="row" id="recent-games">
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card game-card" data-platforms="PS5,PS4" data-rating="4.8" data-price="69.99">
+          <div class="offer-badge">NUEVO</div>
+          <img src="imag/GOW.avif" class="card-img-top" alt="God of War Ragnarök">
+          <div class="card-body">
+            <h5 class="card-title game-title">God of War Ragnarök</h5>
+            <h6 class="card-subtitle mb-2">Acción/Aventura</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="rating-text ml-2">4.8/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">PS5</span>
+              <span class="platform-badge">PS4</span>
+            </div>
+            <p class="price">$69.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card game-card" data-platforms="PC,PS5,Xbox" data-rating="4.5" data-price="59.99">
+          <div class="offer-badge">NUEVO</div>
+          <img src="imag/howard.jpg" class="card-img-top" alt="Hogwarts Legacy">
+          <div class="card-body">
+            <h5 class="card-title game-title">Hogwarts Legacy</h5>
+            <h6 class="card-subtitle mb-2">RPG/Aventura</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span class="rating-text ml-2">4.5/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">PC</span>
+              <span class="platform-badge">PS5</span>
+              <span class="platform-badge">Xbox</span>
+            </div>
+            <p class="price">$59.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card game-card" data-platforms="PS5,PC" data-rating="5.0" data-price="69.99">
+          <div class="offer-badge">NUEVO</div>
+          <img src="imag/tlou.jpg" class="card-img-top" alt="The Last of Us Part I">
+          <div class="card-body">
+            <h5 class="card-title game-title">The Last of Us Part I</h5>
+            <h6 class="card-subtitle mb-2">Acción/Supervivencia</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="rating-text ml-2">5.0/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">PS5</span>
+              <span class="platform-badge">PC</span>
+            </div>
+            <p class="price">$69.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card game-card" data-platforms="PS5" data-rating="4.7" data-price="79.99">
+          <img src="imag/demon.jpg" class="card-img-top" alt="Demon's Souls">
+          <div class="card-body">
+            <h5 class="card-title game-title">Demon's Souls</h5>
+            <h6 class="card-subtitle mb-2">RPG/Acción</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="rating-text ml-2">4.7/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">PS5</span>
+            </div>
+            <p class="price">$79.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN PRIMERA FILA -->
+
+    <!-- SEGUNDA FILA - 2 JUEGOS ADICIONALES -->
+    <div class="row mb-4">
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card game-card" data-platforms="Nintendo Switch" data-rating="4.8" data-price="69.99">
+          <img src="imag/wonder.png" class="card-img-top" alt="Super Mario Bros Wonder">
+          <div class="card-body">
+            <h5 class="card-title game-title">Super Mario Bros Wonder</h5>
+            <h6 class="card-subtitle mb-2">Acción/Plataformas</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="rating-text ml-2">4.8/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">Nintendo Switch</span>
+            </div>
+            <p class="price">$69.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card game-card" data-platforms="Nintendo Switch,PS5,PS4,Xbox" data-rating="4.4" data-price="59.99">
+          <img src="imag/kimetsu.jpg" class="card-img-top" alt="Demon Slayer">
+          <div class="card-body">
+            <h5 class="card-title game-title">Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles</h5>
+            <h6 class="card-subtitle mb-2">Acción/Arena Fighter</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="rating-text ml-2">4.8/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">Nintendo Switch</span>
+              <span class="platform-badge">PS5</span>
+              <span class="platform-badge">PS4</span>
+              <span class="platform-badge">Xbox</span>
+            </div>
+            <p class="price">$59.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Columnas vacías para completar la fila -->
+      <div class="col-md-3 col-sm-6 mb-4 d-none d-md-block"></div>wha
+      <div class="col-md-3 col-sm-6 mb-4 d-none d-md-block"></div>
+    </div>
+    <!-- FIN SEGUNDA FILA -->
+
+    <!-- Segunda sección: Ofertas especiales -->
+    <div class="section-header">
+      <h2 class="section-title">OFERTAS ESPECIALES</h2>
+      <div class="sort-options">
+        <select class="sort-select" data-section="offers">
+          <option value="default">Ordenar por: Predeterminado</option>
+          <option value="price-asc">Precio: Menor a mayor</option>
+          <option value="price-desc">Precio: Mayor a menor</option>
+          <option value="rating">Mejor valorados primero</option>
+          <option value="title">Orden alfabético</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12">
+        <div class="ofertas" id="offer-games">
+          <!-- Oferta 1 -->
+          <div class="card game-card" data-platforms="PS5,PS4" data-rating="4.2" data-price="34.99" data-original-price="49.99">
+            <div class="offer-badge">-30%</div>
+            <img src="imag/miles.jpg" class="card-img-top" alt="Marvel's Spider-Man: Miles Morales">
+            <div class="card-body">
+              <h5 class="card-title game-title">Spider-Man: Miles Morales</h5>
+              <h6 class="card-subtitle mb-2">Acción/Aventura</h6>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-text ml-2">4.2/5</span>
+              </div>
+              <div class="platforms">
+                <span class="platform-badge">PS5</span>
+                <span class="platform-badge">PS4</span>
+              </div>
+              <p class="price"><span class="text-muted old-price">$49.99</span> $34.99</p>
+              <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Añadir al carrito</button>
+            </div>
+          </div>
+          
+          <!-- Oferta 2 -->
+          <div class="card game-card" data-platforms="PS5" data-rating="4.6" data-price="52.49" data-original-price="69.99">
+            <div class="offer-badge">-25%</div>
+            <img src="imag/rat.webp" class="card-img-top" alt="Ratchet & Clank: Rift Apart">
+            <div class="card-body">
+              <h5 class="card-title game-title">Ratchet & Clank: Rift Apart</h5>
+              <h6 class="card-subtitle mb-2">Plataformas/Acción</h6>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="rating-text ml-2">4.6/5</span>
+              </div>
+              <div class="platforms">
+                <span class="platform-badge">PS5</span>
+              </div>
+              <p class="price"><span class="text-muted old-price">$69.99</span> $52.49</p>
+              <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Añadir al carrito</button>
+            </div>
+          </div>
+          
+          <!-- Oferta 3 -->
+          <div class="card game-card" data-platforms="PS5,PC" data-rating="4.1" data-price="35.99" data-original-price="59.99">
+            <div class="offer-badge">-40%</div>
+            <img src="imag/returnal.jpg" class="card-img-top" alt="Returnal">
+            <div class="card-body">
+              <h5 class="card-title game-title">Returnal</h5>
+              <h6 class="card-subtitle mb-2">Roguelike/Acción</h6>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span class="rating-text ml-2">4.1/5</span>
+              </div>
+              <div class="platforms">
+                <span class="platform-badge">PS5</span>
+                <span class="platform-badge">PC</span>
+              </div>
+              <p class="price"><span class="text-muted old-price">$59.99</span> $35.99</p>
+              <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Añadir al carrito</button>
+            </div>
+          </div>
+          
+          <!-- Oferta 4 -->
+          <div class="card game-card" data-platforms="PS5,PS4" data-rating="4.7" data-price="55.99" data-original-price="69.99">
+            <div class="offer-badge">-20%</div>
+            <img src="imag/horizon.avif" class="card-img-top" alt="Horizon Forbidden West">
+            <div class="card-body">
+              <h5 class="card-title game-title">Horizon Forbidden West</h5>
+              <h6 class="card-subtitle mb-2">RPG/Acción</h6>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="rating-text ml-2">4.7/5</span>
+              </div>
+              <div class="platforms">
+                <span class="platform-badge">PS5</span>
+                <span class="platform-badge">PS4</span>
+              </div>
+              <p class="price"><span class="text-muted old-price">$69.99</span> $55.99</p>
+              <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Añadir al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tercera sección: Mejor valorados -->
+    <div class="section-header">
+      <h2 class="section-title">MEJOR VALORADOS</h2>
+      <div class="sort-options">
+        <select class="sort-select" data-section="top-rated">
+          <option value="default">Ordenar por: Predeterminado</option>
+          <option value="price-asc">Precio: Menor a mayor</option>
+          <option value="price-desc">Precio: Mayor a menor</option>
+          <option value="rating">Mejor valorados primero</option>
+          <option value="title">Orden alfabético</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="row" id="top-rated-games">
+      <!-- Juego mejor valorado 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card game-card" data-platforms="PC,PS5,Xbox" data-rating="5.0" data-price="59.99">
+          <div class="offer-badge">TOP 1</div>
+          <img src="imag/elden.jpg" class="card-img-top" alt="Elden Ring">
+          <div class="card-body">
+            <h5 class="card-title game-title">Elden Ring</h5>
+            <h6 class="card-subtitle mb-2">RPG/Acción</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="rating-text ml-2">5.0/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">PC</span>
+              <span class="platform-badge">PS5</span>
+              <span class="platform-badge">Xbox</span>
+            </div>
+            <p class="price">$59.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Juego mejor valorado 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card game-card" data-platforms="PC,PS5,Xbox,Switch" data-rating="5.0" data-price="39.99">
+          <div class="offer-badge">TOP 2</div>
+          <img src="imag/wit.avif" class="card-img-top" alt="The Witcher 3: Wild Hunt">
+          <div class="card-body">
+            <h5 class="card-title game-title">The Witcher 3: Wild Hunt Complete Edition</h5>
+            <h6 class="card-subtitle mb-2">RPG/Aventura</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="rating-text ml-2">5.0/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">PC</span>
+              <span class="platform-badge">PS5</span>
+              <span class="platform-badge">Xbox</span>
+              <span class="platform-badge">Switch</span>
+            </div>
+            <p class="price">$39.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Juego mejor valorado 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card game-card" data-platforms="PC,PS4,Xbox" data-rating="4.8" data-price="59.99">
+          <div class="offer-badge">TOP 3</div>
+          <img src="imag/red.jpg" class="card-img-top" alt="Red Dead Redemption 2">
+          <div class="card-body">
+            <h5 class="card-title game-title">Red Dead Redemption 2</h5>
+            <h6 class="card-subtitle mb-2">Acción/Aventura</h6>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="rating-text ml-2">4.8/5</span>
+            </div>
+            <div class="platforms">
+              <span class="platform-badge">PC</span>
+              <span class="platform-badge">PS4</span>
+              <span class="platform-badge">Xbox</span>
+            </div>
+            <p class="price">$59.99</p>
+            <button class="btn btn-comprar"><i class="fas fa-shopping-cart me-2"></i>Comprar ahora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-md-left text-center mb-3 mb-md-0">
+            <h4><i class="fas fa-gamepad me-2"></i>GameHub</h4>
+            <p class="mb-0">La mejor selección de videojuegos recientes y mejor valorados</p>
+          </div>
+          <div class="col-md-6 text-md-right text-center">
+            <p class="mb-1">© 2026 GameHub. Todos los derechos reservados.</p>
+            <p class="mb-0">
+              <i class="fab fa-twitter me-2 social-icon"></i>
+              <i class="fab fa-facebook me-2 social-icon"></i>
+              <i class="fab fa-instagram me-2 social-icon"></i>
+              <i class="fab fa-youtube social-icon"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modales -->
+  <div class="modal fade" id="gameDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalles del Juego</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="gameDetailsContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="modalAddToCart">Añadir al Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="fas fa-shopping-cart me-2"></i>Mi Carrito</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="cartContent">
+            <p class="text-center">El carrito está vacío</p>
+          </div>
+          <div class="cart-summary mt-4" style="display: none;">
+            <hr>
+            <div class="d-flex justify-content-between">
+              <h5>Total:</h5>
+              <h5 id="cartTotal">$0.00</h5>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Seguir Comprando</button>
+          <button type="button" class="btn btn-success" id="checkoutBtn" style="display: none;">Proceder al Pago</button>
+          <button type="button" class="btn btn-danger" id="clearCartBtn" style="display: none;">Vaciar Carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
