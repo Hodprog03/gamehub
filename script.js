@@ -1,15 +1,10 @@
-// script.js - Funcionalidades para GameHub Galería de Videojuegos
-
-// Variables globales
 let cart = [];
 let cartCount = 0;
 let currentFilter = 'all';
 
-// Inicialización cuando el DOM está cargado
 document.addEventListener('DOMContentLoaded', function() {
   console.log('GameHub - Galería de videojuegos cargada');
   
-  // Inicializar todas las funcionalidades
   initAnimations();
   initBuyButtons();
   initCartCounter();
@@ -19,29 +14,22 @@ document.addEventListener('DOMContentLoaded', function() {
   initGameDetailsModal();
   initCartModal();
   
-  // Cargar carrito desde localStorage si existe
   loadCartFromStorage();
   
-  // Actualizar contador del carrito
   updateCartCounter();
 });
 
-// ============================================
-// ANIMACIONES INICIALES
-// ============================================
+
 
 function initAnimations() {
-  // Animación de entrada para las tarjetas
   const cards = document.querySelectorAll('.game-card');
   
   cards.forEach((card, index) => {
-    // Retraso escalonado para cada tarjeta
     setTimeout(() => {
       card.classList.add('loaded');
     }, index * 100);
   });
   
-  // Efecto de escritura para el título (opcional)
   const headerTitle = document.querySelector('.header h1');
   if (headerTitle) {
     headerTitle.style.opacity = '0';
@@ -62,7 +50,7 @@ function initBuyButtons() {
   
   buyButtons.forEach(button => {
     button.addEventListener('click', function(e) {
-      e.stopPropagation(); // Prevenir que el clic se propague a la tarjeta
+      e.stopPropagation(); 
       
       const card = this.closest('.game-card');
       const gameData = extractGameData(card);
@@ -107,7 +95,6 @@ function extractPlatforms(card) {
 }
 
 function parsePrice(priceText) {
-  // Extraer número del texto del precio (ej: "$59.99" -> 59.99)
   const match = priceText.match(/\$?(\d+\.?\d*)/);
   return match ? parseFloat(match[1]) : 0;
 }
@@ -481,10 +468,8 @@ function sortGames(section, sortBy) {
   
   if (!container) return;
   
-  // Obtener todas las tarjetas como elementos DOM.
   const gameElements = Array.from(container.children);
   
-  // Ordenar los elementos de la paginá.
   gameElements.sort((a, b) => {
     const cardA = a.querySelector('.game-card');
     const cardB = b.querySelector('.game-card');
@@ -510,11 +495,10 @@ function sortGames(section, sortBy) {
         return titleA.localeCompare(titleB);
         
       default:
-        return 0; // Orden predeterminado de elementos.
+        return 0; 
     }
   });
   
-  // Reordenar visualmente todo.
   gameElements.forEach(element => {
     container.appendChild(element);
   });
@@ -522,28 +506,23 @@ function sortGames(section, sortBy) {
   console.log(`Sección "${section}" ordenada por: ${sortBy}`);
 }
 
-// ============================================
-// MODAL DE DETALLES DEL JUEGO...
-// ============================================
+
 
 function initGameDetailsModal() {
-  // Agregar evento a los títulos de los juegos.
   const gameTitles = document.querySelectorAll('.game-title');
   
   gameTitles.forEach(title => {
     title.addEventListener('click', function(e) {
-      e.stopPropagation(); // Prevenir que el clic se propague y se dañe to.
+      e.stopPropagation(); 
       const card = this.closest('.game-card');
       showGameDetails(card);
     });
   });
   
-  // También hacer clicable toda la tarjeta (excepto el botón de compra, ahi no bb)
   const gameCards = document.querySelectorAll('.game-card');
   
   gameCards.forEach(card => {
     card.addEventListener('click', function(e) {
-      // Si el clic fue en el botón de compra, no hacer nada, nada se hará.
       if (e.target.closest('.btn-comprar')) {
         return;
       }
@@ -551,16 +530,13 @@ function initGameDetailsModal() {
     });
   });
   
-  // Configurar el botón del modal-
   const modalAddToCartBtn = document.getElementById('modalAddToCart');
   if (modalAddToCartBtn) {
     modalAddToCartBtn.addEventListener('click', function() {
-      // Obtener datos del juego desde el modal.
       const modalContent = document.getElementById('gameDetailsContent');
       const gameTitle = modalContent.querySelector('h4')?.textContent;
       
       if (gameTitle) {
-        // Buscar la tarjeta correspondiente.
         const allCards = document.querySelectorAll('.game-card');
         const targetCard = Array.from(allCards).find(card => 
           card.querySelector('.card-title').textContent === gameTitle
@@ -570,17 +546,13 @@ function initGameDetailsModal() {
           const gameData = extractGameData(targetCard);
           addToCart(gameData);
           
-          // Mostrar confirmación.
           this.innerHTML = '<i class="fas fa-check me-2"></i>Añadido';
           this.style.backgroundColor = '#27ae60';
           
-          // Actualizar contador.
           updateCartCounter();
           
-          // Cerrar modal después de 1 segundo.
           setTimeout(() => {
             $('#gameDetailsModal').modal('hide');
-            // Restaurar botón.
             setTimeout(() => {
               this.innerHTML = '<i class="fas fa-shopping-cart me-2"></i>Añadir al Carrito';
               this.style.backgroundColor = '';
@@ -596,15 +568,12 @@ function showGameDetails(card) {
   const gameData = extractGameData(card);
   const content = document.getElementById('gameDetailsContent');
   
-  // Calcular descuento si hay precio original del game.
   const discount = gameData.originalPrice > gameData.price 
     ? Math.round((1 - gameData.price / gameData.originalPrice) * 100)
     : 0;
   
-  // Generar descripción según el género del game.
   const description = generateGameDescription(gameData.subtitle);
   
-  // Generar características según plataformas de los games.
   const features = generateGameFeatures(gameData.platforms);
   
   content.innerHTML = `
@@ -658,17 +627,14 @@ function generateStarRating(rating) {
   
   let starsHTML = '';
   
-  // Estrellas llenas.
   for (let i = 0; i < fullStars; i++) {
     starsHTML += '<i class="fas fa-star"></i>';
   }
   
-  // Media estrella.
   if (hasHalfStar) {
     starsHTML += '<i class="fas fa-star-half-alt"></i>';
   }
   
-  // Estrellas vacías.
   for (let i = 0; i < emptyStars; i++) {
     starsHTML += '<i class="far fa-star"></i>';
   }
@@ -704,17 +670,13 @@ function generateGameFeatures(platforms) {
     'Modo foto para capturar momentos épicos'
   ];
   
-  // Seleccionar 4-5 características aleatorias.
   const shuffled = [...allFeatures].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 5);
 }
 
-// ============================================
-// MODAL DEL CARRITO yaaa.
-// ============================================
+
 
 function initCartModal() {
-  // Configurar eventos de los botones del carrito.
   const checkoutBtn = document.getElementById('checkoutBtn');
   const clearCartBtn = document.getElementById('clearCartBtn');
   
@@ -780,15 +742,12 @@ function updateCartModal() {
   html += '</div>';
   cartContent.innerHTML = html;
   
-  // Actualizar total
   document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
   
-  // Mostrar elementos relacionados
   cartSummary.style.display = 'block';
   checkoutBtn.style.display = 'inline-block';
   clearCartBtn.style.display = 'inline-block';
   
-  // Agregar eventos a los botones de cantidad y eliminar
   document.querySelectorAll('.quantity-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const index = parseInt(this.dataset.index);
@@ -804,7 +763,6 @@ function updateCartModal() {
         }
       }
       
-      // Actualizar carrito...
       cartCount = cart.reduce((total, item) => total + item.quantity, 0);
       saveCartToStorage();
       updateCartCounter();
@@ -845,11 +803,9 @@ function checkout() {
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   
-  // Mostrar resumen de compra dale.
   const gameTitles = cart.map(item => `• ${item.title} (x${item.quantity})`).join('\n');
   
   if (confirm(`¿Confirmar compra?\n\n${gameTitles}\n\nTotal: $${total.toFixed(2)}\n\n¿Proceder al pago?`)) {
-    // Simular proceso de pago now.
     const checkoutBtn = document.getElementById('checkoutBtn');
     const originalText = checkoutBtn.innerHTML;
     
@@ -857,17 +813,14 @@ function checkout() {
     checkoutBtn.disabled = true;
     
     setTimeout(() => {
-      // Éxito en la compra nitido.
       checkoutBtn.innerHTML = '<i class="fas fa-check me-2"></i>¡Compra exitosa!';
       checkoutBtn.className = 'btn btn-success';
       
-      // Mostrar mensaje de confirmación..
       showToastNotification({
         title: `¡Compra completada!`,
         price: total
       });
       
-      // Vaciar carrito después de 1.5 segundos...
       setTimeout(() => {
         cart = [];
         cartCount = 0;
@@ -875,7 +828,6 @@ function checkout() {
         updateCartCounter();
         $('#cartModal').modal('hide');
         
-        // Restaurar botón...
         setTimeout(() => {
           checkoutBtn.innerHTML = originalText;
           checkoutBtn.className = 'btn btn-success';
@@ -903,9 +855,7 @@ function clearCart() {
   }
 }
 
-// ============================================
-// LOCALSTORAGE...
-// ============================================
+
 
 function saveCartToStorage() {
   try {
@@ -932,11 +882,7 @@ function loadCartFromStorage() {
   }
 }
 
-// ============================================
-// UTILIDADES PARA DEBUGGING...
-// ============================================
 
-// Exportar funciones para consola (para debugging).
 window.GameHub = {
   getCart: () => [...cart],
   getCartCount: () => cartCount,
@@ -965,6 +911,5 @@ window.GameHub = {
   }
 };
 
-// Log inicial..
 console.log('GameHub JS cargado correctamente');
 console.log('Funciones disponibles en GameHub object:', Object.keys(window.GameHub));
